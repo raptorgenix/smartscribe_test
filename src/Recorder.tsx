@@ -74,8 +74,8 @@ const RecordingComponent: React.FC<RecordingProps> = ({
       })
       .catch((error) => {
         setUploadSuccess(false);
-        setUploadError("Upload failed: " + error.message);
-        console.error("Upload failed:", error.message);
+        setUploadError(error.message);
+        console.error("Upload failed: ", error.message);
       })
       .finally(() => {
         setIsUploading(false);
