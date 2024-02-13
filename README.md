@@ -1,37 +1,12 @@
 # SmartScribe SWE Intern Code Challenge
 
-Welcome to the SmartScribe Software Engineering Intern Code Challenge! This challenge is designed to give us a glimpse into your problem-solving skills, coding abilities, and creativity. As you work through the stages outlined below, remember that while we do appreciate a touch of flair in UI design, our primary focus is on functionality, code clarity, efficiency, and your ability to follow instructions and implement features.
-
-## Getting Started
-
-1. **Clone this repository**: Start by cloning this repository. We suggest naming your cloned repository in a way that reflects the challenge, such as SmartScribe-Intern-Challenge.
-
-2. **Set up your environment**: Ensure you have a development environment set up for React and TypeScript. You'll need Node.js installed on your computer, and we recommend using an IDE like Visual Studio Code for its excellent TypeScript and React support.
-
-3. **Install dependencies**: Navigate to your project directory in the terminal and run `npm install` to install the necessary dependencies.
-
-4. **Start the development server**: Once dependencies are installed, you can start the development server by running `npm run dev`. This will launch the project in your default web browser.
-
-## Objectives
-
-Your task is to build and improve upon a React component that allows users to record audio, name their recordings, download the audio file, and simulate an upload process for transcription. The challenge is divided into stages, each with its own set of requirements. You'll find the specific instructions in the `INSTRUCTIONS.md` file in the repo.
-
 - **Stage I**: Focuses on fixing some existing bugs.
+- I resolved these bugs by utilizing the clearInterval function to stop the timer. Before, the interval was allowed to run indefinitely, though the time would be reset to 0 when stopping. To address the download status updating, I used a variable in the App.tsx to track the status of a download, as well as creating a UI element to display this information.
 - **Stage II**: Aims at improving the user experience based on given criteria and using browser media APIs.
+- I added some state variables for the micPermissions and logic to prevent the "Start recording" button fron being visible until those state variables have changed. The Download button also needed additional logic to receive the recordingName rather than simply using hardcoded values. I made sure to catch the scenario that someone deletes the recordingName mid-recording by having a default name, "name_error" for the case there is no name provided when the user clicks the download button.
 - **Stage III**: Involves implementing a new feature related to audio upload and transcription simulation.
+- For this, I added a new UI element for uploading (a blue button, to keep the UI similar to the green Download button. I changed the "Start Recording" button to use a neutral dark color, and allowed it to use the existing App.css code that managed hovering over buttons because I liked the purple outline color.) The handleUpload function has been implemented, and the UI now displays whether the upload failed or succeeded in the simulation. The "transcript" appears below the status of the upload, when it has succeeded. It additionally prints out the size of the upload. The color of the status message depends on whether it has succeeded or failed. The blue Upload button changes text to "Uploading..." when it is processing the upload.  
 - **BONUS Stage IV**: (Optional) Enhances the application by providing visual feedback on microphone input volume.
+- Once again, I added a state variable to keep track of the volume levels. I grabbed a function to help me display the volume level appropriately, because several other solutions (grabbing the average volume across all bins, or taking the maximum of the bins) caused the volume levels to look to low, or too high, respectively. This solution centers the volume levels around 50% more often, which is far more visually responsive and makes more sense.
+- For fun, I added a "Contact us" link back to the SmartScribe website. 
 
-## What We're Looking For
-
-- **Problem-solving skills**: Your approach to debugging and making improvements.
-- **Code quality**: Clean, readable, and well-structured code.
-- **Understanding of React and TypeScript**: Effective use of React's features and TypeScript's type system.
-- **Creativity and initiative**: Any additional features or enhancements you decide to implement.
-
-## Time Consideration
-
-We understand that your time is valuable, and this challenge is not meant to take an excessively long time. Aim to spend no more than 2-5 hours on this challenge. It's okay if you don't complete every single requirement within this timeframe; we're more interested in seeing your thought process, coding practices, and how you prioritize tasks when time is limited.
-
-## Submission
-
-Once you have completed the challenge to your satisfaction, please submit your work by pushing your code to a GitHub repository and sharing the link with us. Include a README notes you think might be helpful in understanding your approach and thought-process. If you spent a lot of time going down a path that didn't prove fruitful—that's software development!—include a note in your README.
