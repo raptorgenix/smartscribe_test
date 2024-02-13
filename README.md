@@ -1,5 +1,5 @@
 # SmartScribe SWE Intern Code Challenge
-
+I should note that I have some code comments for clarity - I've been in work environments that prefer no comments and other environments that have a preference for comments. These comments were mostly to point to where modifications had been made for ease of reading, and I'm comfortable working with or without comments.
 - **Stage I**: Focuses on fixing some existing bugs.
 - I resolved these bugs by utilizing the clearInterval function to stop the timer. Before, the interval was allowed to run indefinitely, though the time would be reset to 0 when stopping. To address the download status updating, I used a variable in the App.tsx to track the status of a download, as well as creating a UI element to display this information.
 - **Stage II**: Aims at improving the user experience based on given criteria and using browser media APIs.
